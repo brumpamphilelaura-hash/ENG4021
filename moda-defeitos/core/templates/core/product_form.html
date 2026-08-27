@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ title }} | Moda Justa{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h1>{{ title }}</h1>
+    <p>Preencha os dados do produto.</p>
+
+    <form method="post" class="product-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button class="button" type="submit">Salvar produto</button>
+            <a href="{% url 'home' %}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

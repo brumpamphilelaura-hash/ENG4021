@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Vitrine | Moda Justa{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Produtos com pequenos defeitos</h1>
+    <p>Veja o produto, o defeito e o preço de forma transparente.</p>
+</section>
+
+<div class="section-heading">
+    <h2>Produtos disponíveis</h2>
+    <span>{{ products|length }} item(ns)</span>
+</div>
+
+{% if products %}
+<section class="product-grid">
+    {% for product in products %}
+    <article class="product-card">
+        <div class="product-card-content">
+            <h3>{{ product.name }}</h3>
+            <p><strong>Defeito:</strong> {{ product.description }}</p>
+            <p class="price">R$ {{ product.price }}</p>
+            <div class="card-actions">
+                <a href="{% url 'product_update' product.id %}">Editar</a>
+                <a class="danger-link" href="{% url 'product_delete' product.id %}">Remover</a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% else %}
+<section class="empty-state">
+    <h2>A vitrine está vazia</h2>
+    <p>Cadastre o primeiro produto para começar a demonstrar a aplicação.</p>
+    <a class="button" href="{% url 'product_create' %}">Cadastrar primeiro produto</a>
+</section>
+{% endif %}
+{% endblock %}

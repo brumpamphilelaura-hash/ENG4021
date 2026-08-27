@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Remover produto | Moda Justa{% endblock %}
+
+{% block content %}
+<section class="form-section compact-section">
+    <h1>Remover produto?</h1>
+    <p>Você está prestes a remover <strong>{{ product.name }}</strong> da vitrine.</p>
+    <form method="post" class="form-actions">
+        {% csrf_token %}
+        <button class="button danger-button" type="submit">Sim, remover</button>
+        <a href="{% url 'home' %}">Cancelar</a>
+    </form>
+</section>
+{% endblock %}
