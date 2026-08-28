@@ -8,7 +8,44 @@ A proposta é criar uma plataforma para divulgar peças de roupa com pequenos
 defeitos de fabricação, explicando o defeito e o desconto aplicado de forma
 transparente.
 
-## 1. Instalação
+## 1. Organização geral do projeto
+
+Este repositório reúne os materiais desenvolvidos ao longo das sprints e o
+aplicativo web principal. A organização geral é:
+
+```text
+ENG4021/
+├── README.md                 # Documentação geral do projeto
+├── Sprint 0/                 # Materiais e exercícios da Sprint 0
+├── Sprint 1/                 # Materiais e exercícios da Sprint 1
+├── Sprint 2/                 # Materiais e exercícios da Sprint 2
+├── ...                       # Próximas sprints
+└── moda-defeitos/            # Repositório específico do aplicativo Django
+```
+
+### Guia de organização
+
+- Todo arquivo, exercício, código ou documentação referente a uma sprint deve
+    ficar dentro da pasta correspondente: `Sprint 0`, `Sprint 1`, `Sprint 2` e
+    assim por diante.
+- A pasta de uma sprint deve reunir apenas os materiais daquela etapa, para
+    que seja possível acompanhar a evolução do projeto sem misturar versões ou
+    atividades diferentes.
+- A pasta `moda-defeitos` contém o projeto codado do aplicativo e sua própria
+    estrutura Django. A explicação técnica dessa parte está documentada a partir
+    da seção seguinte.
+- Este `README.md` apresenta primeiro a organização geral do repositório e,
+    depois, a instalação, a arquitetura e o estado atual do aplicativo.
+
+## 2. Repositório específico do aplicativo: `moda-defeitos`
+
+Esta é a parte do projeto que já foi implementada em código. O aplicativo é uma
+plataforma Django para exibir produtos com pequenos defeitos de fabricação,
+informar o defeito e apresentar um preço reduzido de forma transparente. Os
+arquivos do sistema ficam dentro de `moda-defeitos/`; as pastas de sprint não
+fazem parte da estrutura interna do aplicativo.
+
+### 2.1 Instalação
 
 ### Instalar o Python
 
@@ -110,13 +147,13 @@ precisa para funcionar, como as tabelas de usuários, sessões e administração
 Depois, acesse <http://127.0.0.1:8000/> no navegador. Para parar o servidor,
 use `Ctrl+C`.
 
-## 2. Tecnologias utilizadas
+## 2.2 Tecnologias utilizadas
 
 - Python
 - Django
 - HTML e CSS
 
-## 3. Padrões de projeto
+## 2.3 Padrões de projeto
 
 O projeto segue a organização natural do Django, baseada no padrão
 **Model-Template-View (MTV)**. Em muitos materiais em português, esse mesmo
@@ -136,7 +173,7 @@ Na Home, a URL chama a `home`, que busca os `Product` e envia a lista para o
 template. No cadastro, a URL chama outra view, que usa o `ProductForm`, salva o
 produto e redireciona para a Home.
 
-### Estrutura de pastas
+### Estrutura interna de `moda-defeitos`
 
 ```text
 moda-defeitos/
@@ -331,7 +368,7 @@ python manage.py migrate
 `manage.py` reúne os comandos do projeto, como iniciar o servidor, criar
 migrations e executar testes. Ele normalmente não precisa ser alterado.
 
-## 4. Estado atual das funcionalidades
+## 2.4 Estado atual das funcionalidades
 
 Neste momento, o projeto já possui uma primeira funcionalidade demonstrável:
 
