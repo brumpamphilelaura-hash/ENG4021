@@ -105,19 +105,7 @@ cd moda-defeitos
 
 Depois, use os comandos do seu sistema abaixo.
 
-#### Fedora Linux
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m django --version
-python manage.py migrate
-python manage.py check
-python manage.py runserver
-```
-
-#### macOS
+#### Codespace, Linux e macOS
 
 ```bash
 python3 -m venv .venv
